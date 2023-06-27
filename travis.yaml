@@ -18,5 +18,5 @@ after_success:
   # Push images to docker hub
   - docker push philipladendorf/multi-client
   - docker push philipladendorf/multi-nginx
-  - docker push philipladendorf/multi-server
+  - docker push philipladendorf/multi-api
   - docker push philipladendorf/multi-worker
