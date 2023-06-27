@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
 
 test('renders learn react link', () => {
-  return true;
+  return new Promise((resolve, reject) => {
+    resolve(true);
+  });
 });

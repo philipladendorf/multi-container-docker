@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t philipladendorf/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t philipladendorf/react-test -f ./client/cliDockerfile.dev ./client
 
 script:
-  - docker run -e CI=true philipladendorf/react-test npm run test -- --coverage
+  - docker run -e CI=true philipladendorf/react-test npm test -- --coverage
 
 after_success:
   - docker build -t philipladendorf/multi-client ./client
