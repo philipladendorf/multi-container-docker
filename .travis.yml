@@ -20,3 +20,4 @@ after_success:
   - docker push philipladendorf/multi-nginx
   - docker push philipladendorf/multi-api
   - docker push philipladendorf/multi-worker
+# Tell Elastic Beanstalk to update the application
