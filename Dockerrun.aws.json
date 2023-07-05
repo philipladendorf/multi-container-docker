@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "philipladendorf/multi-client",
+      "hostName": "client",
+      "essential": false
+    },
+    {
+      "name": "api",
+      "image": "philipladendorf/multi-api",
+      "hostName": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "philipladendorf/multi-worker",
+      "hostName": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "philipladendorf/multi-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "client",
+        "api"]
+    }
+  ]
+}
