@@ -59,7 +59,6 @@ const startUp = async () => {
   console.log('Connecting to Redis');
   console.log(keys.redisHost);
   console.log(keys.redisPort);
-  await pgClient.connect();
 
   await redisClient.connect();
   await redisPublisher.connect();
