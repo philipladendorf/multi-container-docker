@@ -43,17 +43,24 @@ const redis = require('redis');
 const redisClient = redis.createClient({
   url: `redis://${keys.redisHost}:${keys.redisPort}`,
 });
-
 const redisPublisher = redisClient.duplicate();
 
-const startUp = async () => {
-  redisClient.on('error', (err) => console.log(err));
-  redisPublisher.on('error', (err) => console.log(err));
+redisClient.on('error', (err) => console.log(err));
+redisPublisher.on('error', (err) => console.log(err));
 
-  redisClient.on('connect', () => console.log('Client connected to Redis'));
-  redisPublisher.on('connect', () =>
-    console.log('Publisher connected to Redis')
-  );
+redisClient.on('connect', () => console.log('Client connected to Redis'));
+redisPublisher.on('connect', () => console.log('Publisher connected to Redis'));
+
+const startUp = async () => {
+  console.log('Starting up');
+  console.log('Connecting to Postgres');
+  console.log(keys.pgHost);
+  console.log(keys.pgPort);
+  console.log('Connecting to Redis');
+  console.log(keys.redisHost);
+  console.log(keys.redisPort);
+  await pgClient.connect();
+
   await redisClient.connect();
   await redisPublisher.connect();
 };
