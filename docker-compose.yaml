@@ -4,7 +4,7 @@ services:
     image: "philipladendorf/multi-client"
     mem_limit: 128m
     hostname: client
-  server:
+  api:
     image: "philipladendorf/multi-api"
     mem_limit: 128m
     hostname: api
